@@ -12,6 +12,6 @@ public class Main {
 
         Student result2=Student.getStudent();
         System.out.println(result2.hashCode());
-
     }
+
 }

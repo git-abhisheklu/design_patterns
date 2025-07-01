@@ -1,3 +1,10 @@
+/* Creational Patterns - (It deals with the object creation mechanism.)
+* 1. Singleton Design Pattern
+* 2. Factory Design Pattern
+* 3. Abstract Factory Design Pattern
+* 4. Builder Design Pattern
+* 5. Prototype Design Pattern */
+
 package org.example;
 
 public class Student {
@@ -5,12 +12,14 @@ public class Student {
     private String name;
     private Integer age;
 
-//    Eager initialization of Singleton Object
-    private static final Student student=new Student();
+    private static Student student;
 
-    public static Student getStudent(){
-        return student;
-    }
+//    Eager initialization of Singleton Object
+//    private static final Student student=new Student();
+//
+//    public static Student getStudent(){
+//        return student;
+//    }
 
     public Long getStudentId() {
         return studentId;
@@ -38,16 +47,19 @@ public class Student {
 
     private Student(){}
 
-
 //    Lazy initialization of Singleton Object.
 
-//    public static Student getStudent(){
-//        if(student!=null) {
-//            return student;
-//        }
-//        student=new Student();
-//        System.out.println("Student object is being created.");
-//        return student;
-//    }
+    public static Student getStudent(){
+        if(student!=null) {
+            return student;
+        }
+        student=new Student();
+        System.out.println("Student object is being created.");
+        return student;
+    }
 
+//    Ways to break Singleton Design Pattern
+//    1. Using Reflection API
+//    2. Using Serialization and Deserialization
+//    3. Using Object Cloning
 }
